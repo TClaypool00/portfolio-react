@@ -9,5 +9,8 @@
             "url": "/to-do",
             "text": "To Do List"
         }
-    ]
+    ],
+    "home": {
+        "text": "This site is a portfollio of all of the projects I've done in React JS."
+    }
 }

@@ -1,5 +1,6 @@
 import { useEffect } from "react";
 import { setTitle } from '../helpers/pageHelper';
+import values from '../values.json';
 
 const Home = () => {
     useEffect(() => {
@@ -8,7 +9,7 @@ const Home = () => {
 
     return (
         <>
-            Home
+            {values.home.text}
         </>
     );
 }
