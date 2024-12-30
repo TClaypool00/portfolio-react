@@ -1,0 +1,39 @@
+$portfollioBlue: #6495ED;
+$blue: blue;
+
+body {
+    margin: 0;
+    padding: 0;
+    background-color: $portfollioBlue;
+    font-size: large;
+}
+
+.main-content {
+    margin: inherit;
+    padding: 4% 1%;
+}
+
+a {
+    text-decoration: none;
+    color: $blue;
+}
+
+nav {
+    #logo, ul {
+        margin: 1% 0;
+    }
+
+    #logo {
+        float: left;
+    }
+
+    ul {
+        float: right;
+
+        li {
+            list-style-type: none;
+            display: inline-block;
+            padding: 0 10px;
+        }
+    }
+}

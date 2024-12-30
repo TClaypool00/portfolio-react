@@ -3,14 +3,11 @@ import values from '../../values.json';
 
 const NavBar = () => {
     return (
-        <nav className="navbar">
-            <div className="navbar-left">
-                <Link to={{
-                    pathname: values.pages[0].url
-                }} >{values.title}</Link>
+        <nav>
+            <div id="logo">
+                {values.title}
             </div>
-            <div className="navbar-center">
-                <ul className="nav-links">
+            <ul>
                     {values.pages.map((item, i) => (
                         <li key={i}>
                             <Link to={{
@@ -19,7 +16,6 @@ const NavBar = () => {
                         </li>
                     ))}
                 </ul>
-            </div>
         </nav>
     )
 }

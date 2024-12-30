@@ -9,10 +9,12 @@ function App() {
   return (
     <Router>
       <NavBar />
-      <Routes>
-        <Route path={values.pages[0].url} element={<Home />} />
-        <Route path={values.pages[1].url} element={<ToDo />} />
-      </Routes>
+      <div className='main-content'>
+        <Routes>
+          <Route path={values.pages[0].url} element={<Home />} />
+          <Route path={values.pages[1].url} element={<ToDo />} />
+        </Routes>
+      </div>
     </Router>
   );
 }
