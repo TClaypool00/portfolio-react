@@ -9,6 +9,10 @@
         {
             "url": "/to-do",
             "text": "To Do List"
+        },
+        {
+            "url": "/typing-test",
+            "text": "Typing Test"
         }
     ],
     "home": {
