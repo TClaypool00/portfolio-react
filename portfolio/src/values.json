@@ -1,5 +1,6 @@
 {
     "title": "Portfollio (React JS)",
+    "emptyText" : "",
     "pages": [
         {
             "url": "/",
@@ -12,5 +13,14 @@
     ],
     "home": {
         "text": "This site is a portfollio of all of the projects I've done in React JS."
+    },
+    "toDo": {
+        "placeholderText": "Add an item...",
+        "addButton": {
+            "text" : "Add"
+        },
+        "errors": {
+            "textIsEmpty": "Text cannot be empty"
+        }
     }
 }

@@ -1,21 +1,44 @@
 $portfollioBlue: #6495ED;
-$blue: blue;
+$teaGreen: #DCF2B0;
+$davyGray: #474647;
+$roseBonbon: #EB4B98;
+$white: #FBFCFF;
 
 body {
     margin: 0;
     padding: 0;
     background-color: $portfollioBlue;
-    font-size: large;
+    font-size: x-large;
+}
+
+#errorMessage {
+    color: $roseBonbon;
+}
+
+a {
+    text-decoration: none;
+    color: $davyGray;
+}
+
+input {
+    padding: 0.5%;
+    border: none;
+    border-radius: 15%;
+    background-color: $teaGreen;
+}
+
+button {
+    padding: 0.5% 1%;
+    border: none;
+    background-color: $roseBonbon;
+    color: $davyGray;
+    font-weight: bold;
 }
 
 .main-content {
     margin: inherit;
     padding: 4% 1%;
-}
-
-a {
-    text-decoration: none;
-    color: $blue;
+    text-align: center;
 }
 
 nav {
@@ -25,6 +48,7 @@ nav {
 
     #logo {
         float: left;
+        color: $davyGray;
     }
 
     ul {
@@ -34,6 +58,32 @@ nav {
             list-style-type: none;
             display: inline-block;
             padding: 0 10px;
+        }
+    }
+}
+
+//To Do List
+#toDoList {
+    margin-top: 2%;
+
+    .item {
+        border: solid black 2px;
+        width: 30%;
+        padding: 1%;
+        margin: auto;
+        text-align: left;
+        &:not(:last-child) {
+            margin-bottom: 2%;
+        }
+
+        .text {
+            width: 80%;
+        }
+
+        button {
+            float: right;
+            padding: 3%;
+            margin-top: -8%;
         }
     }
 }
