@@ -3,6 +3,7 @@ $teaGreen: #DCF2B0;
 $davyGray: #474647;
 $roseBonbon: #EB4B98;
 $white: #FBFCFF;
+$defaultBorder: solid black 2px;
 
 body {
     margin: 0;
@@ -33,12 +34,14 @@ button {
     background-color: $roseBonbon;
     color: $davyGray;
     font-weight: bold;
+    cursor: pointer;
 }
 
 .main-content {
     margin: inherit;
     padding: 4% 1%;
     text-align: center;
+    margin: auto;
 }
 
 nav {
@@ -67,7 +70,7 @@ nav {
     margin-top: 2%;
 
     .item {
-        border: solid black 2px;
+        border: $defaultBorder;
         width: 30%;
         padding: 1%;
         margin: auto;
@@ -85,5 +88,34 @@ nav {
             padding: 3%;
             margin-top: -8%;
         }
+    }
+}
+
+//Calculator
+#calculatorDiv {
+    width: 20%;
+    margin: inherit;
+    border: $defaultBorder;
+
+    #calculatorScreen {
+        border: $defaultBorder;
+        padding: 10%;
+        background-color: $teaGreen;
+        text-align: left;
+    }
+
+    #calcButtons {
+        margin: 10% auto;
+    }
+    
+    button {
+        padding: 4%;
+        margin: 2%;
+        font-size: x-large;
+        width: 20%;
+    }
+
+    .equals {
+        width: 45%;
     }
 }

@@ -13,6 +13,10 @@
         {
             "url": "/typing-test",
             "text": "Typing Test"
+        },
+        {
+            "url": "/calculator",
+            "text": "Calculator"
         }
     ],
     "home": {
@@ -26,5 +30,14 @@
         "errors": {
             "textIsEmpty": "Text cannot be empty"
         }
+    },
+    "calculator": {
+        "buttons": [
+            ["C", "D", "/"],
+            [7, 8, 9, "*"],
+            [4, 5, 6, "-"],
+            [1, 2, 3, "+"],
+            [0, ".", "="]
+        ]
     }
 }

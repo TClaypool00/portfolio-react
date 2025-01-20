@@ -6,6 +6,7 @@ import { useRef } from 'react';
 import Home from './pages/Home';
 import ToDo from './pages/ToDo';
 import TypingTest from './pages/TypingTest';
+import Calculator from './pages/Calculator';
 
 function App() {
   const errorMessageRef = useRef(null);
@@ -20,6 +21,7 @@ function App() {
           <Route path={values.pages[0].url} element={<Home />} />
           <Route path={values.pages[1].url} element={<ToDo errorMessageRef={errorMessageRef} />} />
           <Route path={values.pages[2].url} element={<TypingTest />} />
+          <Route path={values.pages[3].url} element={<Calculator />} />
         </Routes>
       </div>
     </Router>
