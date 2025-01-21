@@ -38,6 +38,21 @@
             [4, 5, 6, "-"],
             [1, 2, 3, "+"],
             [0, ".", "="]
-        ]
+        ],
+        "defaultValue": 0,
+        "oneValue": 1,
+        "periodValue": ".",
+        "equalValue": "=",
+        "clearValue": "C",
+        "classValue": "equals",
+        "signs": [
+            "-",
+            "+",
+            "*",
+            "/"
+        ],
+        "errors": {
+            "cantDivideByZero": "Can't divide by 0"
+        }
     }
 }

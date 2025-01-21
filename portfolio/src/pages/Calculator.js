@@ -4,7 +4,9 @@ import { setTitle } from '../helpers/pageHelper';
 
 function Calculator() {
     const index = 3;
-    const defaultValue = 0;
+    const defaultValue = values.calculator.defaultValue;
+    const stringDefaultValue = defaultValue.toString();
+
     const [calcInput, setCalcInput] = useState({
         sign: values.emptyText,
         num: defaultValue,
@@ -25,12 +27,12 @@ function Calculator() {
             setCalcInput({
                 ...calcInput,
                 num:
-                    calcInput.num === 0 && value === '0'
-                    ? '0'
-                    : removeSpaces(calcInput.num) % 1 === 0
+                    calcInput.num === 0 && value === stringDefaultValue
+                    ? stringDefaultValue
+                    : removeSpaces(calcInput.num) % values.calculator.oneValue === defaultValue
                     ? toLocaleString(Number(removeSpaces(Number(calcInput.num + value))))
                     : toLocaleString(calcInput.num + value),
-                    res: !calcInput.sign ? 0 : calcInput.res
+                    res: !calcInput.sign ? defaultValue : calcInput.res
             });
         }
     }
@@ -42,7 +44,7 @@ function Calculator() {
 
         setCalcInput({
             ...calcInput,
-            num : !calcInput.num.toString().includes('.') ? calcInput.num + value : calcInput.num
+            num : !calcInput.num.toString().includes(values.calculator.periodValue) ? calcInput.num + value : calcInput.num
         });
     }
 
@@ -62,22 +64,22 @@ function Calculator() {
     const equalsClickHandler  = () => {
         if (calcInput.sign && calcInput.num) {
             const math = (a, b, sign) => 
-                sign === "+"
+                sign === getSignValue(1)
                     ? a + b
-                    : sign === '-'
+                    : sign === getSignValue(0)
                     ? a - b
-                    : sign === "*"
+                    : sign === getSignValue(2)
                     ? a * b
                     : a / b;
 
             setCalcInput({
                 ...calcInput,
                 res:
-                    calcInput.num === '0' && calcInput.sign === '/'
-                    ? 'Can\'t divide with 0'
+                    calcInput.num === stringDefaultValue && calcInput.sign === getSignValue(3)
+                    ? values.calculator.errors.cantDivideByZero
                     : math(Number(calcInput.res), Number(calcInput.num), calcInput.sign),
                     sign: values.emptyText,
-                    num: 0
+                    num: defaultValue
             });
         }
     }
@@ -86,38 +88,42 @@ function Calculator() {
         setCalcInput({
             ...calcInput,
             sign: values.emptyText,
-            num: 0,
-            res: 0
+            num: defaultValue,
+            res: defaultValue
         });
     }
 
     const toLocaleString  = (num) =>
         String(num).replace(/(?<!\..*)(\d)(?=(?:\d{3})+(?:\.|$))/g, "$1 ");
 
-    const removeSpaces = (num) => num.toString().replace(/\s/g, "");
+    const removeSpaces = (num) => num.toString().replace(/\s/g, values.emptyText);
 
     function getValue(e) {
         return e.target.innerHTML;
+    }
+
+    function getSignValue(index) {
+        return values.calculator.signs[index];
     }
 
     return (
         <>
             <h3>{values.pages[index].text}</h3>
 
-            <div id='calculatorDiv'>
+            <div id='calculatorDiv' className='box'>
                 <div id='calculatorScreen'>{calcInput.num ? calcInput.num : calcInput.res}</div>
                 <div id='calcButtons'>
                     {buttons.flat().map((btn, i) => {
                         return (
-                            <button key={i} className={btn === '=' || btn === "C" ? 'equals' : values.emptyText }
+                            <button key={i} className={btn === values.calculator.equalValue || btn === values.calculator.clearValue ? values.calculator.classValue : values.emptyText }
                             onClick={
-                                btn === 'C'
+                                btn === values.calculator.clearValue
                                     ? resetClickHandler
-                                    : btn === '='
+                                    : btn === values.calculator.equalValue
                                     ? equalsClickHandler
-                                    : btn === '/' || btn === '*' || btn === '-' || btn === '+'
+                                    : btn === getSignValue(3) || btn === getSignValue(2) || btn === getSignValue(0) || btn === getSignValue(1)
                                     ? signClickHandler
-                                    : btn === '.'
+                                    : btn === values.calculator.periodValue
                                     ? commaClickHandler
                                     : numClickHandler
                             } >
